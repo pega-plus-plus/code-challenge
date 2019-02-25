@@ -1,0 +1,4 @@
+driver=oracle.jdbc.driver.OracleDriver
+url=jdbc:oracle:thin:@instancedb.c2mjrycz2a8r.us-east-2.rds.amazonaws.com:1521:ORCL
+usr=DG10
+password=sonic800x
