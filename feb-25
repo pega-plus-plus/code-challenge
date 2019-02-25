@@ -1,0 +1,22 @@
+Flashcard Application
+
+Build an application for viewing and manipulating study flashcards. 
+
+A flashcard has id, question, answer, and category. 
+A category has id and name. 
+
+A user can: 
+- view all flashcards
+- view flashcards by category
+- create a new flashcard
+- update an existing flashcard
+- delete an existing flashcard
+
+Technologies:
+Java 8, Maven, Oracle SQL, JDBC, Servlets, Tomcat, HTML, CSS, JavaScript, Bootstrap (optional)
+Feel free to use either a local DB or AWS RDS. 
+
+Gitflow:
+Clone this repository and create a branch with your name. 
+On this branch, create your project. Commit and push frequently!!
+Final commits at 2:30pm. 
