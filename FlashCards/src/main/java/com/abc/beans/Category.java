@@ -1,15 +1,16 @@
 package com.abc.beans;
 
 public class Category {
-	private int id;
+	
+	private int categoryId;
 	private String name;
 	
 	
-	public int getId() {
-		return id;
+	public int getCategoryId() {
+		return categoryId;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setCategoryid(int categoryId) {
+		this.categoryId = categoryId;
 	}
 	public String getName() {
 		return name;
@@ -17,5 +18,4 @@ public class Category {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

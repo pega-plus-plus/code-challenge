@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>CATALINA INC</title>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani" rel="stylesheet">
+
+<!-- Bring Bootstrap 4 libraries -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous">
+</script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+</script>
+
+<!-- The above makes use of a CDN (Content Delivery Network) It will take the files directly
+		from the link posted above and use it in the project. -->
+<script src="./js/ajaxemployee.js"></script>
+</head>
+
+<body>
+	<form action="VerifyOptionServlet.do" method="POST">
+		<div class="rsection">
+			<h3>
+				<strong>FlashCard Application</strong>
+			</h3>
+		</div>
+		<div class="col-sm-12">
+			<div class="form-group">
+				<div class="rsection">
+					<label for="signup_or_login"><strong>CHOOSE AN
+							OPTION</strong></label>
+					<!-- <div class="rsection"> -->
+					<select name="signup_or_login" class="form-control">
+						<option value="">SIGN UP or LOGIN</option>
+						<option value="sign_up">SIGN UP</option>
+						<option value="login">LOGIN</option>
+					</select>
+					<select class="form-control form-control-sm" id="employee">
+							<option value="" id=listdefault>--LOADING EMPLOYEES--</option>
+						</select>
+					<button class="btn btn-success">
+						<strong>SUBMIT OPTION</strong>
+					</button>
+					<!-- </div> -->
+					<br>
+				</div>
+	</form>
+</body>
+</html>

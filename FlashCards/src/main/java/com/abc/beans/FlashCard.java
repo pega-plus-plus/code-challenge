@@ -2,15 +2,15 @@ package com.abc.beans;
 
 public class FlashCard {
 	
-	private Integer id;
+	private Integer flashId;
 	private String question;
 	private String answer;
 	private Integer categoryId;
 	
 		
-	public FlashCard(int id, String question, String answer, int categoryId) {
+	public FlashCard(int flashId, String question, String answer, int categoryId) {
 		super();
-		this.id = id;
+		this.flashId = flashId;
 		this.question = question;
 		this.answer = answer;
 		this.categoryId = categoryId;
@@ -18,11 +18,11 @@ public class FlashCard {
 
 
 	public int getId() {
-		return id;
+		return flashId;
 	}
 	
-	public void setId(int id) {
-		this.id = id;
+	public void setId(int flashId) {
+		this.flashId = flashId;
 	}
 	public String getQuestion() {
 		return question;

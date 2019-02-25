@@ -116,6 +116,28 @@ public class FlashCardDao {
 		return false;
 	}
 	
+	public boolean updateFlashCard(FlashCard flash) {
+		String sql = "UPDATE flashcard SET question = ? and answer = ? where"
+				+ "flashid = ?";
+		PreparedStatement ps = null;
+		
+		try(Connection conn = DBConnection.getConnection()){
+			ps = conn.prepareStatement(sql);
+			ps.setString(1, flash.getQuestion());
+			ps.setString(2, flash.getAnswer());
+			ps.setInt(3, flash.getId());
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(ps != null) {
+				close(ps);
+			}
+		}
+		
+		return false;
+	}
+	
 	/**
 	 * Deleting a flashcard
 	 * 
@@ -123,7 +145,7 @@ public class FlashCardDao {
 	 * @return
 	 */
 	public boolean deleteFlashCard(int id) {
-		String sql = "DELETE FROM flashcard WHERE id = ?";
+		String sql = "DELETE FROM flashcard WHERE flashid = ?";
 		PreparedStatement ps = null;
 		try(Connection conn = DBConnection.getConnection()){
 			ps = conn.prepareStatement(sql);
@@ -139,5 +161,4 @@ public class FlashCardDao {
 		}
 		return false;
 	}
-
 }
