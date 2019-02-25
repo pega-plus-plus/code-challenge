@@ -21,18 +21,18 @@ public class CardController {
 		}
 		String question = request.getParameter("question");
 		String answer = request.getParameter("answer");
-		int category = Integer.parseInt(request.getParameter("category"));
+		String category = request.getParameter("category");
 	
 		Flashcard card = new Flashcard(question, answer, category);
 		FlashcardDaoImpl fcdi = new FlashcardDaoImpl();
-		fcdi.createFlashcard(card);
+		fcdi.create(card);
 		return "html/home.html";
 	}
 
 	/*Retrieve table of flashcards in JSON string*/
 	public static String CardTableJSON(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		FlashcardDaoImpl fcdi = new FlashcardDaoImpl();
-		List<Flashcard> cardList =(List<Flashcard>)fcdi.getAllFlashcards();
+		List<Flashcard> cardList =(List<Flashcard>)fcdi.read();
 		System.out.println(cardList);
 		try {
 			response.getWriter().write(new ObjectMapper().writeValueAsString(cardList));

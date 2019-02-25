@@ -5,21 +5,21 @@ public class Flashcard {
 	private int id;
 	private String question;
 	private String answer;
-	private int category;
+	private String category;
 	
 	public Flashcard() {
 		super();
 	}
 	
 	/*building from program, db will set ID after*/
-	public Flashcard( String q, String a, int cat) {
+	public Flashcard( String q, String a, String cat) {
 		this.question = q;
 		this.answer = a;
 		this.category = cat;
 	}
 	
 	/*building from DB, id will be read in*/
-	public Flashcard( int id, String q, String a, int cat) {
+	public Flashcard( int id, String q, String a, String cat) {
 		this.id = id;
 		this.question = q;
 		this.answer = a;
@@ -50,12 +50,12 @@ public class Flashcard {
 		this.answer = answer;
 	}
 
-	public int getCategory() {
+	public String getCategory() {
 		return category;
 	}
 
-	public void setCategory(int category) {
-		this.category = category;
+	public void setCategory(String string) {
+		this.category = string;
 	}
 
 	@Override

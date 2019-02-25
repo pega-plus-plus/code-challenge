@@ -7,9 +7,9 @@ import com.revature.beans.Flashcard;
 
 public interface FlashcardDAO {
 
-	public Flashcard getFlashcard(int id) throws SQLException;
-	public void createFlashcard(Flashcard card) throws SQLException;
-	public List<Flashcard> getAllFlashcards() throws SQLException;
-	public void updateFlashcard(int cardId, String update) throws SQLException;
-	public void deleteFlashcard(int cardId) throws SQLException;
+	public void create(Flashcard card) throws SQLException;
+	public Flashcard read(int id) throws SQLException;
+	public List<Flashcard> read() throws SQLException;
+	public void update(int cardId, String update) throws SQLException;
+	public void delete(int cardId) throws SQLException;
 }

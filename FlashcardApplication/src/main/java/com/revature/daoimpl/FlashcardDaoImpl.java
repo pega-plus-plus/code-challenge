@@ -10,27 +10,57 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.revature.beans.CheckingAccount;
 import com.revature.beans.Flashcard;
+import com.revature.beans.SavingsAccount;
 import com.revature.dao.FlashcardDAO;
+import com.revature.util.ConnFactory;
+
 public class FlashcardDaoImpl implements FlashcardDAO {
 
-	public void createFlashcard(Flashcard card) {
-		
+	public static ConnFactory cf = ConnFactory.getInstance();
+
+	public void create(Flashcard card) {
+
 	}
-	public Flashcard getFlashcard(int id) {
+
+	public Flashcard read(int id) throws SQLException {
+		Connection conn = cf.getConnection();
+		ResultSet rs;
+		Flashcard card;
+
+		String query = "SELECT A.id, A.question, A.answer, B.name" + "FROM Flashcards A"
+				+ "JOIN Category B ON A.category = B.category" + "WHERE A.id = ?";
+		PreparedStatement ps = conn.prepareStatement(query);
+		ps.setInt(1, id);
+		rs = ps.executeQuery();
+		while (rs.next()) {
+			card = new Flashcard();
+		}
+		card.setId(rs.getInt("id"));
+		card.setQuestion(rs.getString("question"));
+		card.setAnswer(rs.getString("answer"));
+		card.setCategory(rs.getDouble("name"));
+
+	}
+	rs.close();
+	ps.close();
+	conn.close();
+
+	return card;
+
+	}
+
+	public List<Flashcard> read() {
 		return null;
-		
+
 	}
-	
-	
-	public List<Flashcard> getAllFlashcards(){
-		return null;
-		
+
+	public void update(int cardId, String update) {
+
 	}
-	public void updateFlashcard(int cardId, String update) {
-		
-	}
-	public void deleteFlashcard(int cardId) {
-		
+
+	public void delete(int cardId) {
+
 	}
 }
