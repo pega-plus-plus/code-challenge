@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>TRMS Project 1</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Bring Bootstrap 4 libraries -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!--The above makes use of a CDN (COntent Deliver Network). It will take the files
+    	directly from the link posted above and use it in the project. -->
+<link rel="stylesheet" type="text/css" href="./resources/css/main.css" />
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="rsection">
+			<h1>CODE CHALLENGE!</h1>
+		</div>
+		<hr>
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="rsection">
+					<h1>Here are your options!</h1>
+					<a href="ViewFormsServlet"><button class="btn btn-success">View all Flashcards</button></a>
+					<hr>
+					<a href="user/viewevents.html"><button class="btn btn-success">View Flashcards by Category</button></a>
+				</div>
+			</div>
+
+			<div class="col-sm-6">
+				<div class="rsection">
+					<h3>LOGIN</h3>
+					<hr>
+					<form method="post" action="LoginServlet">
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">USERNAME</span>
+							</div>
+							<input type="text" class="form-control" placeholder="USERNAME"
+								name="username" required>
+						</div>
+						<div class="input-group mb-3">
+							<div class="input-group-prepend">
+								<span class="input-group-text">PASSWORD</span>
+							</div>
+							<input type="password" class="form-control" placeholder="PASSWORD"
+								name="password" required>
+						</div>
+						<button class="btn btn-success">LOGIN</button>
+					</form>
+				</div>
+			</div><!-- class=col-sm-6 -->
+
+		</div> <!-- class=row -->
+
+	</div><!-- class=container-fluid -->
+</body>
+</html>
