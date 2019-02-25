@@ -11,11 +11,11 @@ public class RequestHelper {
 
 	public static String process(HttpServletRequest request, HttpServletResponse response) throws SQLException {
 		System.out.println(request.getRequestURI());
-//		switch(request.getRequestURI()) {
-//		
-//		case "/TRMSProject/html/Login.do": 
-//			return LoginController.Login(request);
-//			
+		switch(request.getRequestURI()) {
+		
+		case "/FlashcardApplication/html/SubmitCard.do":
+			return CardController.CardTableJSON(request,response);
+			
 //		case "/TRMSProject/html/Home.do":
 //			return HomeController.Home(request);
 //			
@@ -37,8 +37,8 @@ public class RequestHelper {
 //		case "/TRMSProject/html/ApproveTableJSON.do":
 //			return FormController.ApproveForms(request,response);
 //			
-//		default:
+		default:
 			return "/html/home.html"; 
-//		}
+		}
 	}
 }
