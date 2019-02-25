@@ -1,14 +1,26 @@
-package com.abc.flashcard;
+package com.abc.beans;
 
 public class FlashCard {
 	
-	private int id;
+	private Integer id;
 	private String question;
 	private String answer;
-	private Category category;
+	private Integer categoryId;
+	
+		
+	public FlashCard(int id, String question, String answer, int categoryId) {
+		super();
+		this.id = id;
+		this.question = question;
+		this.answer = answer;
+		this.categoryId = categoryId;
+	}
+
+
 	public int getId() {
 		return id;
 	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -24,10 +36,11 @@ public class FlashCard {
 	public void setAnswer(String answer) {
 		this.answer = answer;
 	}
-	public Category getCategory() {
-		return category;
+	public int getCategoryId() {
+		return categoryId;
 	}
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategoryId(int categoryId) {
+		this.categoryId = categoryId;
 	}
+	
 }

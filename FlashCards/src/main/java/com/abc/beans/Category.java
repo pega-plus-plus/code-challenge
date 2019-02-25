@@ -1,4 +1,4 @@
-package com.abc.flashcard;
+package com.abc.beans;
 
 public class Category {
 	private int id;
