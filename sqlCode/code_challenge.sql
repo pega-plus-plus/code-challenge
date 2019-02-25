@@ -45,3 +45,23 @@ BEGIN
     END IF;
 END;
 
+INSERT INTO category VALUES (1, 'Food');
+INSERT INTO category VALUES (2, 'Living');
+INSERT INTO category VALUES (3, 'Vehicles');
+
+INSERT INTO flashcard VALUES (null, 'What is Hamburger?', 'Food', 1);
+INSERT INTO flashcard VALUES (null, 'What is Soda?', 'Drink', 1);
+INSERT INTO flashcard VALUES (null, 'What is Salad?', 'Food', 1);
+
+INSERT INTO flashcard VALUES (null, 'What is an Apartment', 'Building', 2);
+INSERT INTO flashcard VALUES (null, 'What is a House', 'Housing', 2);
+INSERT INTO flashcard VALUES (null, 'What is a RV', 'Mobile House', 2);
+
+INSERT INTO flashcard VALUES (null, 'What is a Ford', 'Truck', 3);
+INSERT INTO flashcard VALUES (null, 'What is a Honda', 'Car', 3);
+INSERT INTO flashcard VALUES (null, 'What is a Harley', 'Motorcycle', 3);
+
+SELECT * FROM flashcard;
+SELECT * FROM category;
+
+commit;

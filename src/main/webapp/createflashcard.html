@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Your Form!</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+<!-- Bring Bootstrap 4 libraries -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<!--The above makes use of a CDN (COntent Deliver Network). It will take the files
+    	directly from the link posted above and use it in the project. -->
+<link rel="stylesheet" type="text/css" href="./resources/css/main.css" />
+<link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="rsection">
+			<h1>Create Flashcard!</h1>
+			<div id="errorDiv"></div>
+			<form method="post" id="trms" action="CreateFlashcardServlet">
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Question</span>
+					</div>
+					<input type="text" class="form-control" placeholder="QUESTION"
+						name="question" required>
+				</div>
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Answer</span>
+					</div>
+					<input type="text" class="form-control" placeholder="ANSWER"
+						name="answer" required>
+				</div>
+				<div class="form-group">
+					<label for="sel2">Select list:</label> <select class="form-control"
+						id="category" name="category">
+						<option value="">---Please Select Option---</option>
+						<option value="1">Food</option>
+						<option value="2">Living</option>
+						<option value="3">Vehicles</option>
+					</select>
+				</div>
+				<button class="btn btn-success">SUBMIT</button>
+				<hr>
+				<input type='button' value='GO BACK' onclick='goBack()'>
+				<script>
+					function goBack() {
+						window.history.back();
+					}
+				</script>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

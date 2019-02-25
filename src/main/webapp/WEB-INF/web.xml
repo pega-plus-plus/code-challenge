@@ -9,4 +9,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ViewFlashcardsServlet</display-name>
+    <servlet-name>ViewFlashcardsServlet</servlet-name>
+    <servlet-class>com.revature.servlet.ViewFlashcardsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewFlashcardsServlet</servlet-name>
+    <url-pattern>/ViewFlashcardsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CreateFlashcardServlet</display-name>
+    <servlet-name>CreateFlashcardServlet</servlet-name>
+    <servlet-class>com.revature.servlet.CreateFlashcardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateFlashcardServlet</servlet-name>
+    <url-pattern>/CreateFlashcardServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
