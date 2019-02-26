@@ -8,24 +8,32 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="/resources/css/custom.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="resources/css/custom.css">
 
 <title>Flashcard Home</title>
+
 </head>
-<body>
+<body class="my-background-image">
 
 	<div class="container-fluid">
 	
-		<h1>Flashcards!</h1><br>
+		<div>
+			<h1 class="text-primary text-center">Flashcards!</h1><br>
+		</div>
 		
-		<div><a href="/flashcard/GetAFlashcardServlet" class="btn btn-primary" role="button">All Categories</a></div><br>
+		<div style="height: 50px">
+		</div>
+		<div class="row justify-content-center">
+			<div class="text-center col-2">
+				<p><a href="/flashcard/GetAFlashcardServlet" class="btn btn-primary" role="button">All Categories</a></p>
 		
-		<div><a href="/flashcard/GetAFlashcardByCategoryServlet" class="btn btn-primary" role="button">Choose Category</a></div><br>
+				<p><a href="/flashcard/GetAFlashcardByCategoryServlet" class="btn btn-primary" role="button">Choose Category</a></p>
 		
-		<div><a href="/flashcard/AddCategoryServlet" class="btn btn-primary" role="button">Add Category</a></div><br>
+				<p><a href="/flashcard/AddCategoryServlet" class="btn btn-primary" role="button">Add Category</a></p>
 		
-		<div><a href="/flashcard/AddFlashcardServlet" class="btn btn-primary" role="button">Add Flashcard</a></div><br>
-	
+				<p><a href="/flashcard/AddFlashcardServlet" class="btn btn-primary" role="button">Add Flashcard</a></p>
+			</div>
+		</div>
 	</div>
 	
 	<!-- bootstrap files for jquery and JavaScript -->	

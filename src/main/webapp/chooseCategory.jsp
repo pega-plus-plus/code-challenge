@@ -10,11 +10,11 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="/resources/css/custom.css" rel="stylesheet">
+<link href="resources/css/custom.css" rel="stylesheet">
 
-<title>Add A Category</title>
+<title>Choose Category</title>
 </head>
-<body>
+<body class="my-background-image">
 
 	<div class="container-fluid">
 		<nav class="navbar">

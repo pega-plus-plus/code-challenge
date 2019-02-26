@@ -13,11 +13,11 @@
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
 	integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 	crossorigin="anonymous">
-<link href="/resources/css/custom.css" rel="stylesheet">
+<link href="resources/css/custom.css" rel="stylesheet">
 
 <title>Update Flashcard</title>
 </head>
-<body>
+<body class="my-background-image">
 
 	<div class="container-fluid">
 		<nav class="navbar">
@@ -72,7 +72,7 @@
 					name="answer" placeholder="Answer" 
 					value="${fc.answer}" required>
 			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+			<button type="submit" class="btn btn-primary">Update</button>
 		</form>
 
 

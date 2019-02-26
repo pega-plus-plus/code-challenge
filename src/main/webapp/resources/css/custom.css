@@ -1,0 +1,7 @@
+.my-background-image {
+		background-image: url("../img/apple-book-business-301943.jpg");
+		height: 500px;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover; 
+	}

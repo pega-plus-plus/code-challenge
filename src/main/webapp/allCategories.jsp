@@ -10,11 +10,11 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-<link href="/resources/css/custom.css" rel="stylesheet">
+<link href="resources/css/custom.css" rel="stylesheet">
 
-<title>Add A Category</title>
+<title>All Categories</title>
 </head>
-<body>
+<body class="my-background-image">
 
 	<div class="container-fluid">
 		<nav class="navbar">
@@ -37,11 +37,11 @@
 			</span>
 		</nav>
 		
-		<h3><c:out value="${fc.categoryName}" /></h3>
+		<h3 id="category"><c:out value="${fc.categoryName}" /></h3>
 		
 		<div class="card">
   			<div class="card-header">Question</div>
-  			<div class="card-body">
+  			<div class="card-body" id="question">
   				<c:out value="${fc.question}" />
   			</div> 
 		</div>
@@ -52,17 +52,57 @@
 		<div id="answerCard" class="collapse">
 			<div class="card">
 	  			<div class="card-header">Answer</div>
-	  			<div class="card-body">
+	  			<div class="card-body" id="answer">
 	  				<c:out value="${fc.answer}" />
 	  			</div> 
 			</div>
 		</div>
 		<br>
-		<a href="/flashcard/GetAFlashcardServlet" class="btn btn-primary"
-			role="button">Next</a>
+		
+		<button class="btn btn-primary" type="button" onclick="nextCard()">Next</button>
+		
+		<p>
+			<form method="get" action="UpdateFlashcardServlet" id="updateFlashcard">
+	     		<input id="editCard" type="hidden" name="flashcardId" value=<c:out value="${fc.flashcardId }" />>				      							      			
+	       		<button type="submit" class="btn btn-warning" >Edit</button>
+	       	</form>
+		</p>
+		<p>
+			<form method="post" action="DeleteFlashcardServlet" id="deleteFlashcard">
+	     		<input id="deleteCard" type="hidden" name="flashcardId" value=<c:out value="${fc.flashcardId }" />>
+	       		<button type="submit" class="btn btn-danger" >Delete</button>
+	       	</form>
+       	</p>
+     
 		<div style="height: 200px"></div>	
 
 	</div>
+	
+	<script>
+		function nextCard() {
+			
+			let flashcard = null;
+	
+			var xhr = new XMLHttpRequest();
+			xhr.open('GET', 'NextFlashcardServlet', true);
+			xhr.onreadystatechange = function() {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					flashcard = JSON.parse(xhr.response);
+					
+					document.getElementById("category").innerHTML = flashcard.categoryName;
+					document.getElementById("question").innerHTML = flashcard.question;
+					document.getElementById("answer").innerHTML = flashcard.answer;
+					document.getElementById("editCard").setAttribute("value", flashcard.flashcardId);
+					document.getElementById("deleteCard").setAttribute("value", flashcard.flashcardId);
+				}
+			}
+	
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xhr.send();
+	
+		}
+	
+	</script>
 
 	<!-- bootstrap files for jquery and JavaScript -->	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

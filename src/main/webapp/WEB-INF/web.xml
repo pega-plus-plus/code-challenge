@@ -69,4 +69,14 @@
     <servlet-name>GetAFlashcardByCategoryServlet</servlet-name>
     <url-pattern>/GetAFlashcardByCategoryServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NextFlashcardServlet</display-name>
+    <servlet-name>NextFlashcardServlet</servlet-name>
+    <servlet-class>flashcard.servlets.NextFlashcardServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NextFlashcardServlet</servlet-name>
+    <url-pattern>/NextFlashcardServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
