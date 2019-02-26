@@ -1,0 +1,2 @@
+This file is created from my L440. I want to test how to work on the same from
+two different computers. The road to learning git by practicing it.
