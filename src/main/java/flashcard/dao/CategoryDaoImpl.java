@@ -21,7 +21,7 @@ public class CategoryDaoImpl implements CategoryDao{
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			stmt = conn.prepareStatement("INSERT INTO fc_category VALUES(fc_category_seq.NEXTVAL,?)");
 
-			stmt.setString(2, cat.getCategoryName());
+			stmt.setString(1, cat.getCategoryName());
 			
 			stmt.execute();
 
@@ -35,7 +35,6 @@ public class CategoryDaoImpl implements CategoryDao{
 		return true;
 	}
 
-	@Override
 	public List<Category> getAllCategories() {
 		Statement stmt = null;
 		ResultSet rs = null;
@@ -44,7 +43,7 @@ public class CategoryDaoImpl implements CategoryDao{
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			stmt = conn.createStatement();
 
-			rs = stmt.executeQuery("SELECT * FROM category");
+			rs = stmt.executeQuery("SELECT * FROM fc_category");
 
 			while (rs.next()) {
 				catList.add(new Category(
@@ -59,6 +58,33 @@ public class CategoryDaoImpl implements CategoryDao{
 		}
 
 		return catList;
+	}
+
+	@Override
+	public String getCategoryName(int catId) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String categoryName = null;
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			stmt = conn.prepareStatement("SELECT fc_category_name FROM fc_category WHERE fc_category_id=?");
+
+			stmt.setInt(1, catId);
+			
+			rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				categoryName = rs.getString(1);
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+			return "";
+		} finally {
+			close(stmt);
+		}
+
+		return categoryName;
 	}
 
 }

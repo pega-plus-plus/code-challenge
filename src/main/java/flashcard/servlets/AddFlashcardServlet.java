@@ -1,0 +1,86 @@
+package flashcard.servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import flashcard.beans.Category;
+import flashcard.beans.Flashcard;
+import flashcard.dao.CategoryDao;
+import flashcard.dao.CategoryDaoImpl;
+import flashcard.dao.FlashcardDao;
+import flashcard.dao.FlashcardDaoImpl;
+
+/**
+ * Servlet implementation class AddFlashcardServlet
+ */
+public class AddFlashcardServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		FlashcardDao fcDao = new FlashcardDaoImpl();
+		CategoryDao catDao = new CategoryDaoImpl();
+		
+		List<Flashcard> fcList = fcDao.getAllFlashcards();
+		List<Category> catList = catDao.getAllCategories();
+		
+		request.getSession().setAttribute("fcList", fcList);
+		request.getSession().setAttribute("catList", catList);
+
+		request.getRequestDispatcher("addFlashcard.jsp").forward(request, response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		FlashcardDao fcDao = new FlashcardDaoImpl();
+		CategoryDao catDao = new CategoryDaoImpl();
+
+		String question = request.getParameter("question");
+		String answer = request.getParameter("answer");
+		int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+		String categoryName = catDao.getCategoryName(categoryId);
+		
+		Flashcard fc = new Flashcard(-1, question, answer, categoryId, categoryName);
+		
+		
+		try {
+			fcDao.addFlashcard(fc);
+			request.getSession().setAttribute("message", "Flashcard successfully added");
+			request.getSession().setAttribute("messageClass", "text-success");
+		}catch (Exception e) {
+			e.printStackTrace();
+			request.getSession().setAttribute("message", "There was a error while adding the flashcard");
+			request.getSession().setAttribute("messageClass", "text-danger");
+		}
+		
+		List<Flashcard> fcList = fcDao.getAllFlashcards();
+		
+		//Jackson mapper
+		/*
+		 * We will use this object to convert the java object into a JSON String representation of the
+		 * data. This will make for handling any data passed from java to javascript significantly easier 
+		 * to work with.
+		 */
+		ObjectMapper om = new ObjectMapper();
+		
+		//Tell the client that it will be receiving JSON formatted data.
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		//Convert the collection into a JSON string representation.
+		out.print(om.writeValueAsString(fcList));
+	}
+
+}

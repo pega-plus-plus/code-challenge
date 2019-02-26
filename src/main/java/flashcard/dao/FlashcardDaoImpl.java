@@ -15,15 +15,15 @@ import flashcard.util.ConnectionUtil;
 
 public class FlashcardDaoImpl implements FlashcardDao {
 
-	public boolean addFlashCard(Flashcard fc) {
+	public boolean addFlashcard(Flashcard fc) {
 		PreparedStatement stmt = null;
 
 		try (Connection conn = ConnectionUtil.getConnection()) {
 			stmt = conn.prepareStatement("INSERT INTO flashcard VALUES(flashcard_seq.NEXTVAL,?,?,?)");
 
-			stmt.setString(2, fc.getQuestion());
-			stmt.setString(3, fc.getAnswer());
-			stmt.setInt(4, fc.getCategoryId());
+			stmt.setString(1, fc.getQuestion());
+			stmt.setString(2, fc.getAnswer());
+			stmt.setInt(3, fc.getCategoryId());
 			
 			stmt.execute();
 
@@ -41,11 +41,12 @@ public class FlashcardDaoImpl implements FlashcardDao {
 		PreparedStatement stmt = null;
 
 		try (Connection conn = ConnectionUtil.getConnection()) {
-			stmt = conn.prepareStatement("UPDATE flashcard SET question=?, answer=?, category_id=?");
+			stmt = conn.prepareStatement("UPDATE flashcard SET question=?, answer=?, category_id=? WHERE flashcard_id=?");
 
 			stmt.setString(1, fc.getQuestion());
 			stmt.setString(2, fc.getAnswer());
 			stmt.setInt(3, fc.getCategoryId());
+			stmt.setInt(4, fc.getFlashcardId());
 			
 			stmt.execute();
 
@@ -88,7 +89,7 @@ public class FlashcardDaoImpl implements FlashcardDao {
 			stmt = conn.createStatement();
 
 			rs = stmt.executeQuery("SELECT f.flashcard_id, f.question, f.answer, f.category_id, " +
-					"c.category_name FROM flashcard f INNER JOIN category c ON f.category_id = c.fc_category_id");
+					"c.fc_category_name FROM flashcard f INNER JOIN fc_category c ON f.category_id = c.fc_category_id");
 
 			while (rs.next()) {
 				fcList.add(new Flashcard(
@@ -138,6 +139,37 @@ public class FlashcardDaoImpl implements FlashcardDao {
 		}
 
 		return fcList;
+	}
+
+	@Override
+	public Flashcard getFlashcard(int fcId) {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		Flashcard fc = null;
+
+		try (Connection conn = ConnectionUtil.getConnection()) {
+			stmt = conn.prepareStatement("SELECT * FROM flashcard WHERE flashcard_id=?");
+			
+			stmt.setInt(1, fcId);
+
+			rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				fc = new Flashcard(
+						rs.getInt(1),
+						rs.getString(2), 
+						rs.getString(3),
+						rs.getInt(4),
+						"");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close(rs);
+			close(stmt);
+		}
+
+		return fc;
 	}
 
 }

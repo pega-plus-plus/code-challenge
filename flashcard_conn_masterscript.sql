@@ -51,3 +51,4 @@ INSERT INTO flashcard VALUES(flashcard_seq.NEXTVAL,'12 / 2 =','6',4);
 INSERT INTO flashcard VALUES(flashcard_seq.NEXTVAL,'12 / 3 =','4',4);
 INSERT INTO flashcard VALUES(flashcard_seq.NEXTVAL,'12 / 4 =','3',4);
 
+commit;
