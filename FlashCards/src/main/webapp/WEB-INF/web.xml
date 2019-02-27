@@ -9,4 +9,24 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>CreateFlashServlet</display-name>
+    <servlet-name>CreateFlashServlet</servlet-name>
+    <servlet-class>com.abc.servlets.CreateFlashServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateFlashServlet</servlet-name>
+    <url-pattern>/CreateFlashServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FlashOptionServlet</display-name>
+    <servlet-name>FlashOptionServlet</servlet-name>
+    <servlet-class>com.abc.servlets.FlashOptionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FlashOptionServlet</servlet-name>
+    <url-pattern>/FlashOptionServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

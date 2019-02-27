@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>REIMBURSEMENT</title>
+<link rel="stylesheet" type="text/css"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="./css/main.css">
+
+<!-- google fonts -->
+<link href="https://fonts.googleapis.com/css?family=Rajdhani"
+	rel="stylesheet">
+
+<!-- Bring Bootstrap 4 libraries -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous">
+	
+</script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
+	
+</script>
+<style>
+.button {
+	background-color: blue;
+	background
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: true;
+	display: inline-block;
+	margin: 4px 2px;
+	cursor: pointer;
+}
+
+</style>
+<!-- The above makes use of a CDN (Content Delivery Network) It will take the files directly
+		from the link posted above and use it in the project. -->
+<script>
+	function formValidation() {
+		var edate = document.forms["myform"]["event_date"].value;
+		if (edate == "") {
+			alert("Event date must be 7 days ahead");
+			return false;
+		}
+	}
+</script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div class="rsection">
+			<h1>CREATE A FLASHCARD</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<div class=rsection>
+					<div class=rsection>
+						<form method="POST" action="FlashServlet.do">
+
+							<!-- question -->
+							<div class="form-group">
+								<label for="question"><b>QUESTION</b></label><br> <input
+									type="text" class="form-control" placeholder="QUESTION"
+									name="question" required>
+							</div>
+
+							<!-- answer -->
+							<div class="form-group">
+								<label for="answer"><b>ANSWER</b></label><br> <input
+									type="text" class="form-control" placeholder="ANSWER"
+									name="answer" required>
+							</div>
+							<button class="btn btn-success">SUBMIT</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

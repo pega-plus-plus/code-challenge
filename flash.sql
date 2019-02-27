@@ -1,4 +1,4 @@
-CREATE TABLE flashcard (
+CREATE TABLE flashcards (
     flash_id NUMBER NOT NULL PRIMARY KEY,
     question VARCHAR2 NOT NULL,
     answer VARCHAR2,

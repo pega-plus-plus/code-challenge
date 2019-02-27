@@ -26,7 +26,7 @@
 		from the link posted above and use it in the project. -->
 <link rel="stylesheet" type="text/css" href="./main.css" />
 </head>
-<body>
+<body >
 	<div class="container-fluid">
 
 
@@ -34,46 +34,22 @@
 			<div class="col-sm-12">
 				<div class="rsection">
 					<h4 class="center">
-						<strong class="center">THIS IS A FLASH CARD APPLICATION
-							CHALLENGE</strong>
+						<strong class="center">THIS IS A
+							FLASH CARD APPLICATION CHALLENGE</strong>
 					</h4>
 				</div>
-				<div class="rsection">
-					<h4 class="center">
-						<strong class="center">THIS IS A FLASH CARD APPLICATION
-							CHALLENGE</strong>
-					</h4>
-				</div>
-				<div class="rsection">
-					<h4 class="center">
-						<strong class="center">THIS IS A FLASH CARD APPLICATION
-							CHALLENGE</strong>
-					</h4>
-				</div>
-				<div class="rsection">
-					<h4 class="center">
-						<strong class="center">THIS IS A FLASH CARD APPLICATION
-							CHALLENGE</strong>
-					</h4>
-				</div>
-				<div class=rsection>
-					<form method="POST" action="FlashServlet.do">
-
-						<!-- username -->
-						<div class="form-group">
-							<label for="question"><b>QUESTION</b></label><br> <input
-								type="text" class="form-control" placeholder="QUESTION"
-								name="question" required>
-						</div>
-
-						<!-- password -->
-						<div class="form-group">
-							<label for="answer"><b>ANSWER</b></label><br> <input
-								type="text" class="form-control" placeholder="ANSWER"
-								name="answer" required>
-						</div>
-						<button class="btn btn-success">SUBMIT</button>
-					</form>
+				<div class="form-group">
+					<label for="flashcard_option">
+					<b class="rsection" style="color: BLUE">PICK AN OPTION ABOUT A FLASHCARD
+					</b></label> <select
+						name="flashcard_option" class="form-control" id="flashcard_option">
+						<option value="">FLASH CARDS OPTIONS</option>
+						<option value="flashcard">FLASH CARDS</option>
+						<option value="flashcard_category">FLASH CARD BY CATEGORY</option>
+						<option value="create_flashcard">CREATE FLASHCARD</option>
+						<option value="update_flashcard">UPDATE FLASHCARD</option>
+						<option value="delete_flashcard">DELETE FLASHCARD</option>
+					</select>
 				</div>
 			</div>
 		</div>
