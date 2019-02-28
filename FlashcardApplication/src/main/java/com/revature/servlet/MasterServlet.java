@@ -42,6 +42,21 @@ public class MasterServlet extends HttpServlet{
 		
 	}
 	
+	@Override
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+	throws ServletException, IOException {
+		System.out.println("In doDelete");
+		String targetURL = null;
+		try {
+			targetURL = RequestHelper.process(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		//System.out.println(request.getParameter("id"));
+
+		request.getRequestDispatcher(targetURL).forward(request,response);
+	}
+	
 	
 }
 

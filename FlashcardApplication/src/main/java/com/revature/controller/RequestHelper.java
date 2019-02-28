@@ -14,11 +14,16 @@ public class RequestHelper {
 		switch(request.getRequestURI()) {
 		
 		case "/FlashcardApplication/html/SubmitCard.do":
-			return CardController.CardTableJSON(request,response);
+			return CardController.SubmitCard(request,response);
 			
+		case "/FlashcardApplication/html/CardTable.do":
+			return CardController.CardTableJSON(request, response);
 //		case "/TRMSProject/html/Home.do":
 //			return HomeController.Home(request);
-//			
+
+		case "/FlashcardApplication/html/DeleteCard.do":
+			System.out.println("Request Helper delete card path");
+			return CardController.DeleteCard(request,response);
 //		case "/TRMSProject/html/Register.do":
 //			return RegisterController.Register(request);
 //			

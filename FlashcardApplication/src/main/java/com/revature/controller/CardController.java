@@ -21,18 +21,17 @@ public class CardController {
 		}
 		String question = request.getParameter("question");
 		String answer = request.getParameter("answer");
-		String category = request.getParameter("category");
-	
+		int category = Integer.parseInt(request.getParameter("category"));
 		Flashcard card = new Flashcard(question, answer, category);
 		FlashcardDaoImpl fcdi = new FlashcardDaoImpl();
 		fcdi.create(card);
-		return "html/home.html";
+		return "home.html";
 	}
 
 	/*Retrieve table of flashcards in JSON string*/
 	public static String CardTableJSON(HttpServletRequest request, HttpServletResponse response) throws SQLException {
-		FlashcardDaoImpl fcdi = new FlashcardDaoImpl();
-		List<Flashcard> cardList =(List<Flashcard>)fcdi.read();
+		FlashcardDaoImpl rfdi = new FlashcardDaoImpl();
+		List<Flashcard> cardList = (List<Flashcard>)rfdi.read();
 		System.out.println(cardList);
 		try {
 			response.getWriter().write(new ObjectMapper().writeValueAsString(cardList));
@@ -41,6 +40,19 @@ public class CardController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		return null;
+	}
+
+	public static String DeleteCard(HttpServletRequest request, HttpServletResponse response) throws NumberFormatException, SQLException {
+		System.out.println("cardController delete method");
+		FlashcardDaoImpl fcdi = new FlashcardDaoImpl();
+		if(request.getParameterMap().isEmpty()) {
+			System.out.println("PARAMS ARE EMPTY");
+			return "home.html";
+		};
+		//fcdi.delete((int) request.getAttribute("id"));
+		
+		//System.out.println("PARAMS: " + request.getParameterMap().entrySet());
 		return null;
 	}
 }
